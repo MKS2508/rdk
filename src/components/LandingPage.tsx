@@ -5,24 +5,57 @@ import { useInView } from "react-intersection-observer";
 import ReactPlayer from "react-player";
 
 import {
+    Card,
     CarouselImage,
     CarouselImageContainer,
-    Container, FooterContainer, FooterText,
+    Container, Description, EmailLink, FooterContainer, FooterText,
     GlassCard,
     GlassCardContainer,
     GradientText,
     IframeContainer,
-    InfoText,
-    ParallaxCarousel, SocialMediaContainer, SocialMediaIcon,
+    InfoText, InstagramLink, LinkContainer, Name,
+    ParallaxCarousel, ProfileImage, SocialMediaContainer, SocialMediaIcon, SoundCloudLink,
 } from "./LandingPage.styles";
 import {
     DESCRIPCION_RADEK,
     FOTOS_EVENTOS,
     IMAGENES_CARRUSEL,
-    LINKS_REDES_SOCIALES,
+    LINKS_REDES_SOCIALES, PERFILES_RDK,
     PODCASTS_URLS
 } from "../Configuracion";
+import SoundCloudPlayer from "./BandCampPlayer/BandCampPlayer";
+import BandCampPlayer from "./SoundCloudPlayer/SoundCloudPlayer";
 
+// @ts-ignore
+const UserCard = ({ imageSrc, name, description, soundCloudUrl, instagramUrl, email, bandCampUrl }) => {
+    return (
+        <Card>
+            <ProfileImage src={imageSrc} alt="Profile" />
+            <Name>{name}</Name>
+            <SoundCloudLink href={soundCloudUrl} target="_blank" rel="noopener noreferrer">
+                SoundCloud Profile
+            </SoundCloudLink>
+            <LinkContainer>
+
+                <InstagramLink href={instagramUrl} target="_blank" rel="noopener noreferrer">
+                    Instagram
+                </InstagramLink>
+                <EmailLink href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
+                    Email 📥
+                </EmailLink>
+            </LinkContainer>
+            <Description>{description}</Description>
+
+            <h4>
+                Listen some of my sets on:
+            </h4>
+            <label>SoundCloud</label>
+            <SoundCloudPlayer url={soundCloudUrl} height={"20px"} width={"100%"}/>
+            <label>BandCamp</label>
+            <BandCampPlayer url={bandCampUrl}/>
+        </Card>
+    );
+};
 const Podcasts = () => {
     return (
         <div>
@@ -32,8 +65,32 @@ const Podcasts = () => {
             <GlassCardContainer>
                 {PODCASTS_URLS.map((url, index) => (
                     <GlassCard key={index}>
-                        <ReactPlayer url={url} width={"100%"}/>
+                        <ReactPlayer url={url} width={"100%"} height={"100%"} />
                     </GlassCard>
+                ))}
+            </GlassCardContainer>
+        </div>
+    );
+};
+
+
+const Perfiles = () => {
+    return (
+        <div>
+            <InfoText>
+                <GradientText>¿Quienes somos?</GradientText>
+            </InfoText>
+            <GlassCardContainer>
+                {PERFILES_RDK.map((perfil, index) => (
+                        <UserCard
+                            email={perfil.email}
+                            bandCampUrl={perfil.bandCampUrl}
+                            name={perfil.nombre}
+                            imageSrc={perfil.imagen}
+                            description={perfil.descripcion}
+                            soundCloudUrl={perfil.soundCloudUrl}
+                            instagramUrl={perfil.instagramUrl}
+                        />
                 ))}
             </GlassCardContainer>
         </div>
@@ -47,7 +104,7 @@ const Descripcion = () => {
             </InfoText>
             <GlassCardContainer>
                     <GlassCard >
-                        <p style={{color:"white", textAlign: "center"}}>
+                        <p style={{color:"white", textAlign: "center", overflowY: "scroll"}}>
                             {DESCRIPCION_RADEK}
                         </p>
                     </GlassCard>
@@ -152,6 +209,7 @@ const ArtistLandingPage = () => {
                 <Podcasts />
                 <RedesSociales />
                 <Eventos />
+                <Perfiles/>
             </motion.div>
             <Footer/>
         </Container>

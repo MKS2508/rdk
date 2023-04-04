@@ -1,6 +1,7 @@
 import foto1 from "./assets/foto2.jpg";
 import foto2 from "./assets/foto2.jpg";
 import foto3 from "./assets/foto2.jpg";
+import fotoPerfil1 from "./assets/foto_perfil.png";
 import fotoEvento1 from "./assets/foto3.jpg";
 
 export const FOTOS_EVENTOS = [fotoEvento1, fotoEvento1];
@@ -28,6 +29,32 @@ export const LINKS_REDES_SOCIALES = [
     },
     // Agrega más elementos aquí siguiendo el mismo formato de objeto
 ];
+export const FOTO_PERFIL_1 = fotoPerfil1;
+export const PERFILES_RDK = [
+    {
+        nombre: "MÜTTER",
+        email: "email",
+        imagen: FOTO_PERFIL_1,
+        descripcion: "Soy un Joven DJ amante del Techno Underground",
+        soundCloudUrl: "https://soundcloud.com/radek-raver/rdk-podcast-006-mutter",
+        bandCampUrl: "https://bandcamp.com/EmbeddedPlayer/album=2190208773/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/",
+        instagramUrl: "https://soundcloud.com/radek-raver/rdk-podcast-006-mutter",
+
+    },
+    {
+        nombre: "MÜTTER",
+        email: "email",
+
+        imagen: FOTO_PERFIL_1,
+        descripcion: "Soy un Joven DJ amante del Techno Underground",
+        soundCloudUrl: "https://soundcloud.com/radek-raver/rdk-podcast-006-mutter",
+        bandCampUrl: "https://bandcamp.com/EmbeddedPlayer/album=2190208773/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/",
+        instagramUrl: "https://soundcloud.com/radek-raver/rdk-podcast-006-mutter",
+
+    }
+    // Agrega más elementos aquí siguiendo el mismo formato de objeto
+];
+
 
 export const IMAGENES_CARRUSEL = [foto1, foto2, foto3];
 export const DESCRIPCION_RADEK = "RDK es un colectivo audaz y enérgico formado por jóvenes DJs underground riojanos, apasionados por la música techno y la vibrante escena nocturna. Nuestro objetivo es crear experiencias inolvidables en el mundo de la música electrónica, fusionando talento local con influencias internacionales y estilos innovadores.\n" +

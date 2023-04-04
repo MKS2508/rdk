@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import exp from "constants";
 
 export const Container = styled(motion.div)`
   display: flex;
@@ -48,7 +49,7 @@ export const GlassCard = styled(motion.div)`
   align-items: center;
   justify-content: center;
   width: 40%;
-  height: 300px;
+  height: 200px;
   margin: 10px;
   @media (max-width: 768px) {
     width: 100%;
@@ -139,3 +140,95 @@ export const SocialMediaIcon = styled(motion.a)`
   }
 `;
 
+
+export const Card = styled(motion.div)`
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
+
+export const ProfileImage = styled.img`
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+`;
+
+export const Name = styled.h2`
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #ffffff;
+`;
+
+export const Description = styled.p`
+  font-size: 16px;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+
+`;
+
+export const LinkContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+`;
+
+export const SoundCloudLink = styled.a`
+  font-size: 16px;
+  color: #ff5500;
+  text-decoration: none;
+  margin-right: 10px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const InstagramLink = styled.a`
+  color: #942ee1;
+  font-size: 16px;
+  text-decoration: none;
+  margin-right: 10px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const EmailLink = styled.a`
+  font-size: 16px;
+  color: #00a1ff;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const SoundCloudPlayer = styled.iframe`
+  width: 100%;
+  height: 20rem;
+`;
+
+export const BandcampPlayer = styled.iframe`
+  width: 100%;
+  height: 20rem;
+`;
